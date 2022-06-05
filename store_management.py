@@ -19,6 +19,7 @@ class items:
                 self.description = description
                 self.buying_price = buying_price
                 self.quantity = quantity
+                self.selling_price = self.buying_price * items.profit_margin
               
 
 
@@ -40,12 +41,12 @@ class items:
 
 
 
-         def selling_price():
-                 selling_price = self.buying_price * items.pay_rate
+         #def selling_price():
+                 #self.selling_price = self.buying_price * items.profit_margin
 
         
         
-        # automate instantiating 
+        # automate instantiating by reading from csv
                                                                                             
          @classmethod
          def ins_csv(cls):
@@ -69,7 +70,7 @@ class items:
         #lets use the repr magic method to format all our instances in the All list in the way we insanciate our instances
 
          def __repr__(self):
-                 return f"items('{self.item_code}', '{self.item_name}','{self.description}', {self.buying_price} )"
+                 return f"items('{self.item_code}', '{self.item_name}','{self.description}', {self.buying_price}', '{self.quantity}', '{self.selling_price}' )"
 
 
 items.ins_csv()
