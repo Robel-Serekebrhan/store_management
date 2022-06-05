@@ -46,7 +46,7 @@ class items:
 
         
         
-        # automate instantiating by reading from csv
+        # automate instantiating by reading from csv usig class method
                                                                                             
          @classmethod
          def ins_csv(cls):
@@ -65,7 +65,7 @@ class items:
                                 )       
                                 
 
-
+        #static method
 
         #lets use the repr magic method to format all our instances in the All list in the way we insanciate our instances
 
@@ -75,3 +75,5 @@ class items:
 
 items.ins_csv()
 print(items.All)
+
+
