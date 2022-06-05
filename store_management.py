@@ -5,12 +5,12 @@ class items:
          profit_margin = 3.2 # class attribute
          All = []
          
-    # is called special funtion or magic methood and is used to initialize all the attributes of the innstances(objects)    
-         def __init__(self, item_code, item_name, description, buying_price, selling_price=0): 
+        # is called special funtion or magic methood and is used to initialize all the attributes of the innstances(objects)    
+         def __init__(self, item_code, item_name, description, buying_price, quantity, selling_price=0): 
         
                 # validate the data inputed  
                 assert buying_price >= 0, f"buying_price{buying_price} can not be negative"
-
+                assert quantity >= 0, f"quantity{quantity} can not be less than zero"
 
                 # attributes for every created instance(object)
                 self.item_code = item_code
@@ -18,6 +18,7 @@ class items:
                 #self.phoeto = phoeto
                 self.description = description
                 self.buying_price = buying_price
+                self.quantity = quantity
               
 
 
@@ -58,7 +59,8 @@ class items:
                                   item_code=item.get('item_code'),
                                   item_name=item.get('item_name'),
                                   description=item.get('description'),
-                                  buying_price=float(item.get('buying_price'))     
+                                  buying_price=float(item.get('buying_price')), 
+                                  quantity=int(item.get('quantity'))    
                                 )       
                                 
 
