@@ -8,18 +8,20 @@ class items:
     # is called special funtion or magic methood and is used to initialize all the attributes of the innstances(objects)    
          def __init__(self, item_code, item_name, description, buying_price, selling_price=0): 
         
-        
+                # validate the data inputed  
+                assert buying_price >= 0, f"buying_price{buying_price} can not be negative"
+
+
                 # attributes for every created instance(object)
                 self.item_code = item_code
                 self.item_name =  item_name
                 #self.phoeto = phoeto
                 self.description = description
                 self.buying_price = buying_price
-                self.selling_price = buying_price * items.profit_margin 
+              
 
 
-        # validate the data inputed  
-                assert buying_price >=0, f"buying_price{buying_price} can not be negative"
+        
 
         # to see all the attribute that bellong to the class or object using the magic attribute(not majic method) .__dict__
         #print(items.__dict__)
@@ -35,6 +37,11 @@ class items:
          def apply_discount(self):
                  self.selling_price = self.selling_price * self.pay_rate
 
+
+
+         def selling_price():
+                 selling_price = self.buying_price * items.pay_rate
+
         
         
         # automate instantiating 
@@ -46,13 +53,13 @@ class items:
                          items_list = list(reader)
 
 
-                         for item in items_list:
-                                  items(
-                                          item_code=item.get('item_code: str'),
-                                          item_name=item.get('item_name: str'),
-                                          description=item.get('description: str'),
-                                          buying_price=item.get('buying_price: float')
-                                          )
+                 for item in items_list:
+                         items(
+                                  item_code=item.get('item_code'),
+                                  item_name=item.get('item_name'),
+                                  description=item.get('description'),
+                                  buying_price=float(item.get('buying_price'))     
+                                )       
                                 
 
 
@@ -63,5 +70,5 @@ class items:
                  return f"items('{self.item_code}', '{self.item_name}','{self.description}', {self.buying_price} )"
 
 
-items().ins_csv()
+items.ins_csv()
 print(items.All)
